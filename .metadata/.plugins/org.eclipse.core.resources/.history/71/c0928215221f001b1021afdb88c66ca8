@@ -1,0 +1,7 @@
+package com.example.productsAndCategories.services;
+
+@Service
+public class MainService 
+{
+
+}

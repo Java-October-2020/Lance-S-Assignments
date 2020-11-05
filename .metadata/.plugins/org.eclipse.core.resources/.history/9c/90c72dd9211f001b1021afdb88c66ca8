@@ -1,0 +1,5 @@
+package com.example.productsAndCategories.repositories;
+
+public class ProductRepository {
+
+}

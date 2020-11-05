@@ -1,0 +1,14 @@
+package com.example.productsAndCategories.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.productsAndCategories.repositories.ProductRepository;
+
+@Service
+public class MainService 
+{
+	@Autowired
+	private ProductRepository pRepo;
+	
+}

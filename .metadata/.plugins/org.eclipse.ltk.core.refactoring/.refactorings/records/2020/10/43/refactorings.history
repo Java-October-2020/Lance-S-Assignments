@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.example.records.controllers.RecordController&apos; to &apos;APIRecordController&apos;&#x0A;- Original project: &apos;records&apos;&#x0A;- Original element: &apos;com.example.records.controllers.RecordController&apos;&#x0A;- Renamed element: &apos;com.example.records.controllers.APIRecordController&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;RecordController&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.records.controllers{RecordController.java[RecordController" matchStrategy="1" name="APIRecordController" qualified="false" references="true" similarDeclarations="false" stamp="1603495520587" textual="false" version="1.0"/>
+</session>

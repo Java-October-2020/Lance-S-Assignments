@@ -1,0 +1,7 @@
+package com.example.productsAndCategories.repositories;
+
+@Repository
+public interface ProductRepository extends CrudRepository<Product, Long>
+{
+
+}

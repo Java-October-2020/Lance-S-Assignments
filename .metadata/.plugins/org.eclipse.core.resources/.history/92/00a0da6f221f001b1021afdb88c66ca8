@@ -1,0 +1,24 @@
+package com.example.productsAndCategories.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.productsAndCategories.models.Product;
+import com.example.productsAndCategories.repositories.ProductRepository;
+
+@Service
+public class MainService 
+{
+	@Autowired
+	private ProductRepository pRepo;
+	
+	public Product createProduct(Product p)
+	{
+		return this.pRepo.save(p);
+	}
+	
+	public Product findProduct(Long id)
+	{
+		return this.pRepo.findById(id).orElse(null);
+	}
+}

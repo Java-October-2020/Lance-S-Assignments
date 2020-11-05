@@ -1,0 +1,12 @@
+package com.example.dojosAndNinjas.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.dojosAndNinjas.repositories.DojoRepository;
+
+@Service
+public class Service 
+{
+	@Autowired
+	private DojoRepository dojoRepo;
+}

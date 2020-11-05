@@ -1,0 +1,13 @@
+package com.example.productsAndCategories.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="products")
+public class Product 
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+}

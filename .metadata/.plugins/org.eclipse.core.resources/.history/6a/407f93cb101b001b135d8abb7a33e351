@@ -1,0 +1,7 @@
+package com.example.dojosAndNinjas.repositories;
+
+@Repository
+public interface DojoRepository extends CrudRepository<Dojo, Long>
+{
+
+}

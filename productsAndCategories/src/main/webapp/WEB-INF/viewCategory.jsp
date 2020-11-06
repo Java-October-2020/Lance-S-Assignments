@@ -9,11 +9,42 @@
 				rel="stylesheet" 
 				integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 				crossorigin="anonymous">
+			<link rel="stylesheet" href="/css/style.css">
 <title>View Category</title>
 </head>
 <body>
-	<div class="container">
-		<h1>${category.name}</h1>
+
+	<div class="header">
+
 	</div>
+
+<div class="container">
+			<div class="info">
+				<h1>Category: ${category.name}</h1>
+			</div>	
+			
+			<div class="contents">
+				<h2>Products </h2>
+				<ul>
+					<c:forEach items="${category.products}" var="p">
+					<li>${p.name}</li>
+					</c:forEach>
+				</ul>
+			</div>
+			
+			<div class="form">
+				<form action="/category/${id}" method="POST">
+				<div class="form-group">
+					<label for="catForm">Add a product:</label>
+					<select name="products" id="catForm">		
+						<c:forEach items="${products}" var="p">
+							<option value="${p.id}">${p.name}</option>
+						</c:forEach>
+					<select>
+				</div>
+				<button>Submit</button>
+				</form>
+			</div>	
+</div>
 </body>
 </html>

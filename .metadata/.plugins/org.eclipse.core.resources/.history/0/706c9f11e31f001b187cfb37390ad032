@@ -1,0 +1,96 @@
+package com.example.productsAndCategories.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.productsAndCategories.models.Category;
+import com.example.productsAndCategories.models.Product;
+import com.example.productsAndCategories.services.MainService;
+
+@Controller
+public class MainController 
+{
+	@Autowired
+	private MainService service;
+	
+	//Homepage
+	@RequestMapping("/")
+	public String index()
+	{
+		return "index.jsp";
+	}
+	//Go to new product page
+	@RequestMapping("/product/new")
+	public String newProduct(@ModelAttribute("product")Product p)
+	{
+		return "newProduct.jsp";
+	}
+	//Create new product
+	@PostMapping("/product/new")
+	public String createProduct(@ModelAttribute("product")Product p, BindingResult result)
+	{
+		if(result.hasErrors())
+		{
+			return "newProduct.jsp";
+		}
+		this.service.createProduct(p);
+		return "redirect:/product/new";
+	}
+	//Go to view product page
+	@RequestMapping("/product/{id}")
+	public String viewProduct(@PathVariable("id")Long id, Model m)
+	{
+		Product p = this.service.findProduct(id);
+		List<Category> categories = this.service.findAllCategories();
+		m.addAttribute("product", p);
+		m.addAttribute("categories", categories);
+		return "viewProduct.jsp";
+	}
+	@PostMapping("/product/{id}")
+	public String joinProduct(@PathVariable("id")Long id,@RequestParam("categories")Long catId)
+	{	
+		Product p = this.service.findProduct(id);
+		List<Category> list = p.getCategories();
+		Category c = this.service.findCategory(catId);
+		list.add(c);
+		p.setCategories(list);
+		this.service.saveProduct(p);
+		return "redirect:/product/new";
+	}
+	
+	//Category Mapping
+	@RequestMapping("/category/new")
+	public String newProduct(@ModelAttribute("category")Category c)
+	{
+		return "newCategory.jsp";
+	}
+	@PostMapping("/category/new")
+	public String createProduct(@ModelAttribute("category")Category c, BindingResult result)
+	{
+		if(result.hasErrors())
+		{
+			return "newCategory";
+		}
+		else
+		{
+			this.service.createCategory(c);
+			return "redirect:/category/new";
+		}
+	}
+	@RequestMapping("/category/{id}")
+	public String viewCategory(@PathVariable("id")Long id, Model m)
+	{
+		Category c = this.service.findCategory(id);
+		m.addAttribute("category", c);
+		return "viewCategory.jsp";
+	}
+}

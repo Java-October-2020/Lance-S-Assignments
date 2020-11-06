@@ -55,6 +55,9 @@ public class MainService
 		return this.cRepo.findAll();
 	}
 	
-
+	public Category saveCategory(Category c)
+	{
+		return this.cRepo.save(c);
+	}
 	
 }

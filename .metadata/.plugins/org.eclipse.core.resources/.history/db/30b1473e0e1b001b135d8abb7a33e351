@@ -1,8 +1,0 @@
-package com.example.dojosAndNinjas.models;
-
-@Entity
-@Table(name="ninjas")
-public class Ninja 
-{
-
-}

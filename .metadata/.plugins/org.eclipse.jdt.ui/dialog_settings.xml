@@ -31,15 +31,15 @@
 		<item key="FinalModifier" value="false"/>
 		<item key="SynchronizedModifier" value="false"/>
 		<item key="Comments" value="false"/>
-		<item key="InsertPosition.v2" value="1"/>
+		<item key="InsertPosition.v2" value="2"/>
 	</section>
 	<section name="AddGetterSetterDialog">
 		<item key="SortOrdering" value="false"/>
 		<item key="RemoveFinal" value="false"/>
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="592"/>
-		<item key="DIALOG_Y_ORIGIN" value="47"/>
+		<item key="DIALOG_X_ORIGIN" value="1166"/>
+		<item key="DIALOG_Y_ORIGIN" value="92"/>
 		<item key="DIALOG_WIDTH" value="555"/>
 		<item key="DIALOG_HEIGHT" value="634"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>

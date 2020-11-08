@@ -22,19 +22,19 @@ public class MainController
 	@Autowired
 	private MainService service;
 	
-	//Homepage
+		//Homepage
 	@RequestMapping("/")
 	public String index()
 	{
 		return "index.jsp";
 	}
-	//Go to new product page
+		//Go to new product page
 	@RequestMapping("/product/new")
 	public String newProduct(@ModelAttribute("product")Product p)
 	{
 		return "newProduct.jsp";
 	}
-	//Create new product
+		//Create new product
 	@PostMapping("/product/new")
 	public String createProduct(@ModelAttribute("product")Product p, BindingResult result)
 	{
@@ -45,7 +45,7 @@ public class MainController
 		this.service.createProduct(p);
 		return "redirect:/product/new";
 	}
-	//Go to view product page
+		//Go to view product page
 	@RequestMapping("/product/{id}")
 	public String viewProduct(@PathVariable("id")Long id, Model m)
 	{
@@ -54,36 +54,6 @@ public class MainController
 		m.addAttribute("product", p);
 		m.addAttribute("categories", categories);
 		return "viewProduct.jsp";
-	}
-	//Add category to product
-	@PostMapping("/product/{id}")
-	public String joinProduct(@PathVariable("id")Long id,@RequestParam("categories")Long catId)
-	{	
-		Product p = this.service.findProduct(id);
-		Category c = this.service.findCategory(catId);
-		List<Product> pList = c.getProducts();
-		List<Category> cList = p.getCategories();
-		cList.add(c);
-		pList.add(p);
-		p.setCategories(cList);
-		this.service.saveProduct(p);
-		this.service.saveCategory(c);
-		return "redirect:/product/new";
-	}
-	
-	@PostMapping("/category/{id}")
-	public String joinCategory(@PathVariable("id")Long id,@RequestParam("products")Long proId)
-	{
-		Product p = this.service.findProduct(proId);
-		Category c = this.service.findCategory(id);
-		List<Product> pList = c.getProducts();
-		List<Category> cList = p.getCategories();
-		cList.add(c);
-		pList.add(p);
-		p.setCategories(cList);
-		this.service.saveProduct(p);
-		this.service.saveCategory(c);
-		return "redirect:/category/new";
 	}
 	
 	//Category Mapping
@@ -114,4 +84,19 @@ public class MainController
 		m.addAttribute("category", c);
 		return "viewCategory.jsp";
 	}
+	@PostMapping("/category/{id}")
+	public String joinCategory(@PathVariable("id")Long id,@RequestParam("products")Long proId)
+	{
+		Product p = this.service.findProduct(proId);
+		Category c = this.service.findCategory(id);
+		List<Product> pList = c.getProducts();
+		List<Category> cList = p.getCategories();
+		cList.add(c);
+		pList.add(p);
+		p.setCategories(cList);
+		this.service.saveProduct(p);
+		this.service.saveCategory(c);
+		return "redirect:/category/new";
+	}
+	
 }

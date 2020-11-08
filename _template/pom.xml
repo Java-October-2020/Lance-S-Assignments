@@ -35,7 +35,8 @@
 			</exclusions>
 		</dependency>
 		
-		<!-- Start here -->
+	<!-- Start here -->
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -70,6 +71,8 @@
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
+		
+	<!-- Start here -->	
 	</dependencies>
 
 	<build>

@@ -1,7 +1,0 @@
-package com.example.dojosAndNinjas.repositories;
-
-@Repository
-public class DojoRepository 
-{
-
-}

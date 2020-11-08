@@ -27,6 +27,10 @@ public class IndexController
 		this.langService = serv;
 	}
 	
+	
+	
+	
+	//Navigate user to page
 	@GetMapping("")
 	public String index(Model model, @ModelAttribute("language")Language lang)
 	{
@@ -34,8 +38,10 @@ public class IndexController
 		model.addAttribute("langs", langs);
 		return "index.jsp";
 	}
+	
+	//Takes in the form data
 	@PostMapping("")
-	public String create(Model model, @Valid @ModelAttribute("language") Language lang, BindingResult result)
+	public String create(Model model, @Valid @ModelAttribute("language")Language lang, BindingResult result)
 	{
 		if(result.hasErrors())
 		{
@@ -51,6 +57,7 @@ public class IndexController
 			return "index.jsp";
 		}
 	}
+	
 	@GetMapping("/{id}")
 	public String view(@PathVariable("id")Long id, Model model)
 	{

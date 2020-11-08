@@ -1,8 +1,0 @@
-package com.example.dojosAndNinjas.services;
-
-@Service
-public class Service 
-{
-	@Autowired
-	private DojoRepository dojoRepo;
-}

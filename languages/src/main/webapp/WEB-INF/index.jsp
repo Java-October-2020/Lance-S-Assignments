@@ -27,10 +27,13 @@
 								<td>${lang.creator}</td>
 								<td>${lang.version}</td>
 								<td>
+								
 									<form:form action="/languages/${lang.id}" method="DELETE">
-									<button>Delete</button>
+										<button>Delete</button>
 									</form:form>
+									
 									<a href="/languages/${lang.id}/edit">edit</a>
+									
 								</td>
 							</tr>
 						</c:forEach>	
